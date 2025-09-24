@@ -1,10 +1,12 @@
-function chunkString(str, chunkLength) {
-  if (str === null) return [];
-  const chunks = [];
+function stringChop(str, chunkLength) {
+  if (!str) return [];
+  chunkLength = Number(chunkLength); // convert input to number
+  if (chunkLength <= 0) return [];   // handle invalid chunk size
+  const result = [];
   for (let i = 0; i < str.length; i += chunkLength) {
-    chunks.push(str.slice(i, i + chunkLength));
+    result.push(str.slice(i, i + chunkLength));
   }
-  return chunks;
+  return result;
 }
 
 // Do not change the code below
